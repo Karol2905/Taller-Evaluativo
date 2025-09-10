@@ -7,11 +7,15 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-@NoArgsConstructor
+
 public class Sistema {
     private ArrayList<Producto> productos;
     private ArrayList<Observador> observadores;
+    public Sistema(){
+        productos = new ArrayList<>();
+        observadores = new ArrayList<>();
 
+    }
     public void agregarProducto(String nombreProducto,String categoriaProducto, int cantidadStock, int precio){
         productos.add(new Producto(cantidadStock,precio,nombreProducto,categoriaProducto));
     }
@@ -20,6 +24,7 @@ public class Sistema {
             if(producto.getNombre().equals(nombre)){
                 int cantidad=producto.getStock()-cantidadVendida;
                 producto.setStock(cantidad);
+                notificacionCambio(producto);
             }
         }
     }
@@ -28,9 +33,20 @@ public class Sistema {
             if(producto.getNombre().equals(nombre)){
                 int cantidad=producto.getStock()+cantidadComprada;
                 producto.setStock(cantidad);
+                notificacionCambio(producto);
             }
         }
     }
+    public void notificacionCambio(Producto producto){
+        for (Observador observador : observadores){
+            observador.informe(producto);
+        }
+    }
+
+    public void subscribir(Observador  observador){
+        observadores.add(observador);
+    }
+
 
 
 }
