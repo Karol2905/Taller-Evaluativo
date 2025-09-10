@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class AgenteLog implements Observador{
     @Override
     public void informe(Producto product){
-        System.out.println("Producto"+product.getNombre()+"->"+product.getStock());
+        System.out.println("Producto "+product.getNombre()+" --> "+product.getStock());
     }
 
 }

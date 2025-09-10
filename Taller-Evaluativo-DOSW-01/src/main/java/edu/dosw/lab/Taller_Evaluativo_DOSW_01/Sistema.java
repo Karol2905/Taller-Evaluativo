@@ -1,22 +1,23 @@
 package edu.dosw.lab.Taller_Evaluativo_DOSW_01;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-
+@Getter
 @Service
 
 public class Sistema {
     private ArrayList<Producto> productos;
     private ArrayList<Observador> observadores;
-    public Sistema(ArrayList<Observador> observadores){
+    public Sistema(java.util.List<Observador> observadores){
         productos = new ArrayList<>();
-        this.observadores = observadores;
+        this.observadores = new ArrayList<>(observadores);
     }
-    public void agregarProducto(String nombreProducto,String categoriaProducto, int cantidadStock, int precio){
-        productos.add(new Producto(cantidadStock,precio,nombreProducto,categoriaProducto));
+    public void agregarProducto(Producto producto){
+        productos.add(producto);
     }
     public void venderProducto(String nombre,int cantidadVendida){
         for (Producto producto : productos){
