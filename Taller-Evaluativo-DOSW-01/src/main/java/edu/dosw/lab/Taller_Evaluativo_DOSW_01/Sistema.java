@@ -11,10 +11,9 @@ import java.util.ArrayList;
 public class Sistema {
     private ArrayList<Producto> productos;
     private ArrayList<Observador> observadores;
-    public Sistema(){
+    public Sistema(ArrayList<Observador> observadores){
         productos = new ArrayList<>();
-        observadores = new ArrayList<>();
-
+        this.observadores = observadores;
     }
     public void agregarProducto(String nombreProducto,String categoriaProducto, int cantidadStock, int precio){
         productos.add(new Producto(cantidadStock,precio,nombreProducto,categoriaProducto));
@@ -42,11 +41,6 @@ public class Sistema {
             observador.informe(producto);
         }
     }
-
-    public void subscribir(Observador  observador){
-        observadores.add(observador);
-    }
-
 
 
 }
