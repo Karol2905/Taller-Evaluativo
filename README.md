@@ -2,7 +2,7 @@
 **Patron de diseño**
 Para este proyecto el patrón de proyecto usado fue el de observer, ya que era el que mas se adaptaba al proyecto, para la implementacion de este lo hice con una interfaz, que definia el metodo que iban a tener los dos agentes en este caso el metodo informar que es aquel que imprime en consola.
 
-**Diagramas**
+## Diagramas
 
 - Diagrama de clases
   
@@ -16,7 +16,7 @@ Para este proyecto el patrón de proyecto usado fue el de observer, ya que era e
 
 <img width="1991" height="840" alt="Diagrama casos de uso" src="https://github.com/user-attachments/assets/a8ad2593-17b1-4877-99be-636eb61a5ed3" />
 
-**Epicas,Feature e Historias de usuario**
+## Epicas,Feature e Historias de usuario
 
 - **ÉPICA 1: Gestión de Productos**
 
@@ -115,13 +115,50 @@ Como desarrollador, quiero ejecutar Jacoco y Sonar para revisar la cobertura del
 
 - El reporte debe reflejar mínimo un 80% de cobertura.
 
-**Covertura de pruebas**
+## Covertura de pruebas
 
 - SonarQube
 <img width="1362" height="527" alt="image" src="https://github.com/user-attachments/assets/e11c1b4a-147f-4b83-838d-7e8366a3b844" />
 
 - Jacoco
 <img width="1224" height="184" alt="image" src="https://github.com/user-attachments/assets/e642e129-2a1b-4d43-913a-d66c445b0c55" />
+
+## Pasos a seguir y evidencias de funcionamineto 
+
+- 1. Colocar en consola en el carpeta donde se encuentra el proyecto, el comando : **mvn clean compile**
+     <img width="1272" height="175" alt="image" src="https://github.com/user-attachments/assets/4bfa2136-f648-4b79-b5b8-b42554e882e0" />
+     <img width="1270" height="418" alt="image" src="https://github.com/user-attachments/assets/e6264372-62e5-471f-9893-88617e21c7f3" />
+
+- 2. Para correr el proyecto,ponemos el comando : **mvn spring-boot:run**
+ <img width="1249" height="426" alt="image" src="https://github.com/user-attachments/assets/a4988bc3-57d2-42a0-beaa-6edc6e00ac29" />
+
+- 3. Ahora desde la consola de nuestro computador para agregar un proyecto lo haremos siguiendo el ejemplo:
+     curl -X POST http://localhost:8080/productos   -H "Content-Type: application/json"   -d '{"nombre":"Celular","precio":2000,"stock":10,"categoria":"Tecnología"}'
+  
+  <img width="655" height="77" alt="image" src="https://github.com/user-attachments/assets/8438f3a7-bd63-48b4-8c07-f529254c6a2b" />
+
+     
+- 4. Para comprobarlo, buscamos en nuestro navegaodr www.localhost:8080/productos
+
+  <img width="1365" height="312" alt="image" src="https://github.com/user-attachments/assets/ecbc344c-5608-4d8a-81a3-42f8037a0d2c" />
+
+- 5. Para editar el stock del producto tenemos dos opciones:
+     - Comprar más unidades, para ello hacemos el comando: curl -X PUT http://localhost:8080/productos/Celular/comprar/5
+    <img width="652" height="72" alt="image" src="https://github.com/user-attachments/assets/466b8970-6262-43ce-92ed-b88e5c9b2672" />
+
+    Al tiempo en la consola vemos el mensaje del agente involucrado, en este caso el AgenteLog:
+
+    <img width="1263" height="52" alt="image" src="https://github.com/user-attachments/assets/7dbcb12a-1432-4d19-b4f7-4927aa9f6606" />
+
+    - Vender unidades, para esto hacemos el comando: curl -X PUT http://localhost:8080/productos/Celular/vender/13
+
+ <img width="654" height="73" alt="image" src="https://github.com/user-attachments/assets/03f43d73-3cf1-4c2b-9a35-8f86c854f203" />
+
+    Ya que ahora nos quedan dos unidades, vemos los dos mensajes de los agentes.
+    <img width="659" height="46" alt="image" src="https://github.com/user-attachments/assets/4477c746-90f7-434a-aed3-714aa9dc6b60" />
+
+
+
 
 
 
