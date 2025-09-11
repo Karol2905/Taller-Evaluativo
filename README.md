@@ -150,14 +150,15 @@ Como desarrollador, quiero ejecutar Jacoco y Sonar para revisar la cobertura del
 
     <img width="1263" height="52" alt="image" src="https://github.com/user-attachments/assets/7dbcb12a-1432-4d19-b4f7-4927aa9f6606" />
 
-    - Vender unidades, para esto hacemos el comando: curl -X PUT http://localhost:8080/productos/Celular/vender/13
+     - Vender unidades, para esto hacemos el comando: curl -X PUT http://localhost:8080/productos/Celular/vender/13
 
  <img width="654" height="73" alt="image" src="https://github.com/user-attachments/assets/03f43d73-3cf1-4c2b-9a35-8f86c854f203" />
 
     Ya que ahora nos quedan dos unidades, vemos los dos mensajes de los agentes.
-    <img width="659" height="46" alt="image" src="https://github.com/user-attachments/assets/4477c746-90f7-434a-aed3-714aa9dc6b60" />
+  
+  <img width="659" height="46" alt="image" src="https://github.com/user-attachments/assets/0ae3dd1f-e285-4faf-8bd8-bbbd90b6d34d" />
 
-
+    
 
 
 
